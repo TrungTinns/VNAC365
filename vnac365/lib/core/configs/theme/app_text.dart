@@ -65,4 +65,25 @@ class AppText {
       fontSize: 14.sp,
       fontWeight: FontWeight.w400,
       color: AppColors.info);
+
+  static final userName = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.questColor,
+  );
+
+  static final welcome = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.welcome,
+  );
+
+  static final service = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.questColor,
+  );
 }

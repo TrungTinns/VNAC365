@@ -15,4 +15,5 @@ class AppColors {
   static const incorrect = Color(0xffED3241);
   static const incorrectBg = Color(0xffFFE2E5);
   static const info = Color(0xffE8E9F1);
+  static const welcome = Color(0xff737373);
 }

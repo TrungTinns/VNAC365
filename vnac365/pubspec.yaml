@@ -38,6 +38,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   intl: ^0.20.0
   get: ^4.6.6
+  water_drop_nav_bar: ^2.2.2
 
 dev_dependencies:
   flutter_test:

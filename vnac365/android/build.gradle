@@ -9,10 +9,15 @@ rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
-subprojects {
-    project.evaluationDependsOn(':app')
-}
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+    // Thêm cấu hình Java cho các subprojects
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = '11' // Thay '11' bằng phiên bản Java bạn muốn sử dụng
+        targetCompatibility = '11' // Thay '11' bằng phiên bản Java bạn muốn sử dụng
+    }
 }
