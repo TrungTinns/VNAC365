@@ -22,8 +22,8 @@ class ActiveScreen extends StatelessWidget {
           height: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(Img.background ?? ''),
-              fit: BoxFit.cover,
+              image: AssetImage(Img.background),
+              fit: BoxFit.fill,
             ),
           ),
           child: Padding(

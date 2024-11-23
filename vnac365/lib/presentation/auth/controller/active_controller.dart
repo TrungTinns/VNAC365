@@ -11,7 +11,7 @@ class ActiveController extends GetxController {
     isActive.value = true;
     codeFocusNode.unfocus();
     if (codeController.text.isNotEmpty) {
-      Get.toNamed(AppRoutes.home);
+      Get.toNamed(AppRoutes.bottomNavBar);
     }
   }
 
@@ -22,6 +22,8 @@ class ActiveController extends GetxController {
 
   @override
   void onClose() {
+    codeController.dispose();
+    codeFocusNode.dispose();
     super.onClose();
   }
 }

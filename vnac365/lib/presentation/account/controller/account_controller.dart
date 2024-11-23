@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vnac365/routes/app_routes.dart';
 
-class HomeController extends GetxController {
-  Future<void> gotoActive() async {
-    Get.toNamed(AppRoutes.active);
+class AccountController extends GetxController {
+  Future<void> signOut() async {
+    Get.toNamed(AppRoutes.auth);
   }
 
   @override

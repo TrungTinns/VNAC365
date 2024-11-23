@@ -7,4 +7,6 @@ class Img {
   static const String paperplane = 'assets/images/paper-plane.png';
   static const String sandclock = 'assets/images/sand-clock.png';
   static const String teamsupport = 'assets/images/team-support.png';
+  static const String backgroundOverturn =
+      'assets/images/background_overturn.png';
 }

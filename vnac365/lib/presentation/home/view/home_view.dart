@@ -9,7 +9,6 @@ import 'package:vnac365/core/configs/theme/app_colors.dart';
 import 'package:vnac365/core/configs/theme/app_text.dart';
 import 'package:vnac365/presentation/home/controller/home_controller.dart';
 import 'package:vnac365/presentation/widgets/service_item.dart';
-import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -55,10 +54,10 @@ class HomeScreen extends StatelessWidget {
         ),
         body: Container(
           padding: EdgeInsets.symmetric(
-            horizontal: 24.w,
+            horizontal: 14.w,
           ),
           child: GridView.count(
-            padding: EdgeInsets.only(top: 24.h),
+            padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 10.w),
             crossAxisCount: 2,
             mainAxisSpacing: 32.h,
             crossAxisSpacing: 17.w,
@@ -69,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                 imagePath: Img.paperplane,
               ),
               ServiceItem(
-                onTap: () {},
+                onTap: homeController.gotoActive,
                 label: 'KIỂM TRA',
                 imagePath: Img.folders,
               ),
@@ -96,26 +95,6 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: Obx(() => WaterDropNavBar(
-              bottomPadding: 16.h,
-              inactiveIconColor: AppColors.hintColor,
-              waterDropColor: AppColors.primary,
-              backgroundColor: Colors.white,
-              onItemSelected: (int index) {
-                homeController.onTabSelected(index);
-              },
-              selectedIndex: homeController.selectedIndex.value,
-              barItems: <BarItem>[
-                BarItem(
-                  filledIcon: Icons.home_rounded,
-                  outlinedIcon: Icons.home_rounded,
-                ),
-                BarItem(
-                  filledIcon: Icons.person_rounded,
-                  outlinedIcon: Icons.person_rounded,
-                ),
-              ],
-            )),
       ),
     );
   }

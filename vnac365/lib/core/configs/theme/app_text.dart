@@ -27,7 +27,7 @@ class AppText {
 
   static final btnText = TextStyle(
     fontFamily: 'Roboto',
-    fontSize: 16.sp,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.white,
   );

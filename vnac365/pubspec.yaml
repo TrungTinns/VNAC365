@@ -39,6 +39,7 @@ dependencies:
   intl: ^0.20.0
   get: ^4.6.6
   water_drop_nav_bar: ^2.2.2
+  spring_button: ^2.0.0
 
 dev_dependencies:
   flutter_test:

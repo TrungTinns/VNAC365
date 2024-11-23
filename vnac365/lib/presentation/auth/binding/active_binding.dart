@@ -4,6 +4,6 @@ import 'package:vnac365/presentation/auth/controller/active_controller.dart';
 class ActiveBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => ActiveController());
+    Get.lazyPut<ActiveController>(() => ActiveController());
   }
 }
