@@ -7,6 +7,10 @@ class HomeController extends GetxController {
     Get.toNamed(AppRoutes.active);
   }
 
+  Future<void> gotoQuiz() async {
+    Get.toNamed(AppRoutes.quiz);
+  }
+
   @override
   void onInit() {
     super.onInit();

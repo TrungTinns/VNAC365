@@ -63,12 +63,12 @@ class HomeScreen extends StatelessWidget {
             crossAxisSpacing: 17.w,
             children: [
               ServiceItem(
-                onTap: () {},
+                onTap: homeController.gotoActive,
                 label: 'BAY',
                 imagePath: Img.paperplane,
               ),
               ServiceItem(
-                onTap: homeController.gotoActive,
+                onTap: homeController.gotoQuiz,
                 label: 'KIỂM TRA',
                 imagePath: Img.folders,
               ),

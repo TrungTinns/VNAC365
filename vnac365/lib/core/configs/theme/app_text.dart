@@ -27,7 +27,7 @@ class AppText {
 
   static final btnText = TextStyle(
     fontFamily: 'Roboto',
-    fontSize: 18.sp,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.white,
   );
@@ -85,5 +85,12 @@ class AppText {
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
     color: AppColors.questColor,
+  );
+
+  static final quizCount = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.secondary,
   );
 }
