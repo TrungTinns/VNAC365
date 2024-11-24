@@ -11,6 +11,10 @@ class HomeController extends GetxController {
     Get.toNamed(AppRoutes.quiz);
   }
 
+  Future<void> gotoHistory() async {
+    Get.toNamed(AppRoutes.history);
+  }
+
   @override
   void onInit() {
     super.onInit();

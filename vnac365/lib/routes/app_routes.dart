@@ -7,6 +7,8 @@ import 'package:vnac365/presentation/auth/view/active_view.dart';
 import 'package:vnac365/presentation/auth/view/auth_view.dart';
 import 'package:vnac365/presentation/bottomnavbar/binding/bottomnavbar_binding.dart';
 import 'package:vnac365/presentation/bottomnavbar/view/bottomnavbar_view.dart';
+import 'package:vnac365/presentation/history/binding/history_binding.dart';
+import 'package:vnac365/presentation/history/view/history_view.dart';
 import 'package:vnac365/presentation/home/binding/home_binding.dart';
 import 'package:vnac365/presentation/home/view/home_view.dart';
 import 'package:vnac365/presentation/quiz/binding/quiz_binding.dart';
@@ -19,6 +21,7 @@ class AppRoutes {
   static const String home = '/home';
   static const String account = '/account';
   static const String quiz = '/quiz';
+  static const String history = '/history';
 
   static List<GetPage> routes = [
     GetPage(name: auth, page: () => const AuthScreen(), binding: AuthBinding()),
@@ -36,5 +39,9 @@ class AppRoutes {
         page: () => const AccountScreen(),
         binding: AccountBinding()),
     GetPage(name: quiz, page: () => QuizScreen(), binding: QuizBinding()),
+    GetPage(
+        name: history,
+        page: () => const HistoryScreen(),
+        binding: HistoryBinding()),
   ];
 }

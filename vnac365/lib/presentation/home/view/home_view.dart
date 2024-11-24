@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                 imagePath: Img.sandclock,
               ),
               ServiceItem(
-                onTap: () {},
+                onTap: homeController.gotoHistory,
                 label: 'BÀI THI ĐÃ LÀM',
                 imagePath: Img.folder,
               ),
