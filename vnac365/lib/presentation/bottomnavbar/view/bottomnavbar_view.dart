@@ -40,7 +40,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body: _pages[_selectedIndex], // Hiển thị trang tương ứng
           bottomNavigationBar: WaterDropNavBar(
             bottomPadding: 16.h,

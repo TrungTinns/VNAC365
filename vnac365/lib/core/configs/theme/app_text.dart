@@ -93,4 +93,11 @@ class AppText {
     fontWeight: FontWeight.w700,
     color: AppColors.secondary,
   );
+
+  static final dateHistory = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.primary,
+  );
 }

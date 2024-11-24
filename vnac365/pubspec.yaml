@@ -43,6 +43,7 @@ dependencies:
   animation_list: ^3.1.0
   transformable_list_view: ^0.6.0
   shaky_animated_listview: ^0.0.5
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:
