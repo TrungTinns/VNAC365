@@ -40,13 +40,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightBackground,
           body: _pages[_selectedIndex], // Hiển thị trang tương ứng
           bottomNavigationBar: WaterDropNavBar(
             bottomPadding: 16.h,
             inactiveIconColor: AppColors.hintColor,
             waterDropColor: AppColors.primary,
-            backgroundColor: Colors.white,
+            backgroundColor: AppColors.lightBackground,
             onItemSelected: (int index) {
               setState(() {
                 _selectedIndex = index;

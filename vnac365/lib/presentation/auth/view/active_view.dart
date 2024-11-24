@@ -44,7 +44,7 @@ class ActiveScreen extends StatelessWidget {
                       controller: activeController.codeController,
                       node: activeController.codeFocusNode,
                       hintText: 'Nhập mã',
-                      icon: Icons.local_phone),
+                      icon: Icons.key_rounded),
                   SizedBox(
                     height: 24.h,
                   ),

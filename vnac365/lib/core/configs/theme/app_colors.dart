@@ -4,7 +4,7 @@ class AppColors {
   static const primary = Color(0xff2E8FD2);
   static const secondary = Color(0xffDC9D1F);
   static const questBg = Color(0xffE3F1FC);
-  static const lightBackground = Color(0xffF2F2F2);
+  static const lightBackground = Color(0xffFAFAFA);
   static const darkBackground = Color(0xff0D0C0C);
   static const black = Colors.black;
   static const white = Colors.white;

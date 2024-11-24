@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:vnac365/core/configs/theme/app_colors.dart';
 import 'package:vnac365/core/configs/theme/app_text.dart';
+import 'package:vnac365/data/models/quiz_model.dart';
 import 'package:vnac365/presentation/quiz/controller/quiz_controller.dart';
 
 class QuizScreen extends StatelessWidget {
@@ -56,12 +57,11 @@ class QuizScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: AppColors.info)),
             child: IconButton(
-              icon: Icon(
-                Icons.close,
-                size: 14,
-              ),
-              onPressed: () => Get.back(),
-            ),
+                icon: Icon(
+                  Icons.close,
+                  size: 14,
+                ),
+                onPressed: quizController.onClose),
           ),
           SizedBox(width: 19.w),
           Expanded(
@@ -155,76 +155,127 @@ class QuizScreen extends StatelessWidget {
     return Obx(() {
       final question =
           quizController.questions[quizController.currentQuestionIndex.value];
-      final selectedAnswer = quizController.selectedAnswer?.value;
+      final isMultiChoice = question.type == QuestionType.multipleChoice;
 
       return Column(
-        children: List.generate(
-          question.options.length,
-          (index) => Padding(
-            padding: EdgeInsets.only(bottom: 12.h),
-            child: _buildOptionItem(
-                index, question.options[index], selectedAnswer),
+        children: [
+          if (isMultiChoice)
+            Text(
+              'Chọn ${question.maxSelections} đáp án',
+              style: AppText.quizCount,
+            ),
+          SizedBox(height: 16.h),
+          ...List.generate(
+            question.options.length,
+            (index) => Padding(
+              padding: EdgeInsets.only(bottom: 12.h),
+              child: _buildOptionItem(
+                quizController.currentQuestionIndex.value,
+                index,
+                question.options[index],
+                isMultiChoice,
+              ),
+            ),
+          ),
+        ],
+      );
+    });
+  }
+
+  Widget _buildOptionItem(int questionIndex, int optionIndex, String optionText,
+      bool isMultiChoice) {
+    return Obx(() {
+      final isSelected =
+          quizController.isAnswerSelected(questionIndex, optionIndex);
+      final isReview = quizController.isReviewMode.value;
+      final isCorrect =
+          quizController.isAnswerCorrect(questionIndex, optionIndex);
+
+      // Define colors based on state
+      Color backgroundColor = Colors.transparent;
+      Color borderColor = AppColors.info;
+      Color textColor = AppColors.questColor; // Default black text
+      Color radioBackgroundColor = Colors.transparent;
+      Color radioBorderColor =
+          isSelected ? AppColors.primary : Colors.grey[300]!;
+      Widget? radioIcon;
+
+      if (isReview) {
+        if (isSelected && !isCorrect) {
+          // Wrong answer selected by user
+          backgroundColor = AppColors.incorrectBg;
+          textColor = Colors.red;
+          radioBackgroundColor = Colors.red;
+          radioBorderColor = Colors.red;
+          radioIcon = Icon(Icons.close, size: 16, color: Colors.white);
+        } else if (isCorrect) {
+          // Correct answer
+          backgroundColor = AppColors.questBg;
+          textColor = AppColors.primary;
+          radioBackgroundColor = AppColors.primary;
+          radioBorderColor = AppColors.primary;
+          radioIcon = Icon(Icons.check, size: 16, color: Colors.white);
+        }
+      } else {
+        // During quiz
+        if (isSelected) {
+          backgroundColor = AppColors.questBg;
+          textColor = AppColors.primary;
+          radioBackgroundColor = AppColors.primary;
+          radioIcon = Icon(Icons.check, size: 16, color: Colors.white);
+        }
+      }
+
+      return GestureDetector(
+        onTap: isReview
+            ? null
+            : () => quizController.toggleAnswer(questionIndex, optionIndex),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            border: Border.all(
+              color: borderColor,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Text(
+                  optionText,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              Container(
+                width: 24,
+                height: 24,
+                decoration: BoxDecoration(
+                  shape: isMultiChoice ? BoxShape.rectangle : BoxShape.circle,
+                  borderRadius: isMultiChoice ? BorderRadius.circular(4) : null,
+                  border: Border.all(
+                    color: radioBorderColor,
+                    width: 2,
+                  ),
+                  color: radioBackgroundColor,
+                ),
+                child: radioIcon,
+              ),
+            ],
           ),
         ),
       );
     });
   }
 
-  Widget _buildOptionItem(int index, String optionText, int? selectedAnswer) {
-    final isSelected = selectedAnswer == index;
-
-    return GestureDetector(
-      onTap: () => quizController.selectAnswer(index),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
-        decoration: BoxDecoration(
-          color: isSelected ? AppColors.questBg : Colors.transparent,
-          border: Border.all(
-            color: isSelected ? Colors.transparent : AppColors.info,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Text(
-                optionText,
-                style: TextStyle(
-                  color: isSelected ? AppColors.primary : AppColors.questColor,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            Container(
-              width: 24,
-              height: 24,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: isSelected ? AppColors.primary : Colors.grey[300]!,
-                  width: 2,
-                ),
-                color: isSelected ? AppColors.primary : Colors.transparent,
-              ),
-              child: isSelected
-                  ? Icon(
-                      Icons.check,
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  : null,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _buildNavigationButtons() {
     return Obx(() {
-      final isAnswerSelected = quizController.selectedAnswer!.value != -1;
+      final isAnswered = quizController.isCurrentQuestionAnswered();
       final isFirstQuestion = quizController.currentQuestionIndex.value == 0;
       final isLastQuestion = quizController.currentQuestionIndex.value ==
           quizController.questions.length - 1;
@@ -232,7 +283,7 @@ class QuizScreen extends StatelessWidget {
       return Container(
         child: Row(
           children: [
-            // Back Button - Ẩn ở câu hỏi đầu tiên
+            // Back Button - Hidden on first question
             if (!isFirstQuestion)
               Expanded(
                 child: Container(
@@ -257,7 +308,7 @@ class QuizScreen extends StatelessWidget {
                 margin: EdgeInsets.only(left: isFirstQuestion ? 0 : 6.5.w),
                 height: 52.h,
                 child: TextButton(
-                  onPressed: isAnswerSelected
+                  onPressed: isAnswered
                       ? (isLastQuestion
                           ? quizController.finishQuiz
                           : quizController.nextQuestion)

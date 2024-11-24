@@ -25,11 +25,11 @@ class HomeScreen extends StatelessWidget {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.lightBackground,
         appBar: AppBar(
-          surfaceTintColor: AppColors.white,
+          surfaceTintColor: AppColors.lightBackground,
           automaticallyImplyLeading: false,
-          backgroundColor: AppColors.white,
+          backgroundColor: AppColors.lightBackground,
           elevation: 0,
           title: Padding(
             padding: EdgeInsets.only(left: 8.w),
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         body: Container(
-          color: AppColors.white,
+          color: AppColors.lightBackground,
           padding: EdgeInsets.symmetric(
             horizontal: 14.w,
           ),

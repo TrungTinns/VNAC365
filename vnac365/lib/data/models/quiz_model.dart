@@ -1,33 +1,20 @@
 class Question {
   final String text;
   final List<String> options;
-  final int correctAnswer;
+  final List<int> correctAnswers; // Changed to support multiple correct answers
+  final int maxSelections; // Maximum number of selections allowed
+  final QuestionType type; // Added to distinguish between radio and checkbox questions
 
   Question({
     required this.text,
     required this.options,
-    required this.correctAnswer,
+    required this.correctAnswers,
+    required this.type,
+    this.maxSelections = 1,
   });
 }
-// class Question {
-//   final String text;
-//   final List<String> options;
-//   final List<int>
-//       correctAnswers; // Giới hạn số đáp án mà người dùng có thể chọn
 
-//   Question({
-//     required this.text,
-//     required this.options,
-//     required this.correctAnswers,
-//   });
-// }
-
-// class Option {
-//   final String text;
-//   final bool isCorrect;
-
-//   Option({
-//     required this.text,
-//     required this.isCorrect,
-//   });
-// }
+enum QuestionType {
+  singleChoice,
+  multipleChoice
+}
