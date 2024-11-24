@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 import 'package:vnac365/core/configs/assets/app_images.dart';
 import 'package:vnac365/core/configs/theme/app_colors.dart';
 import 'package:vnac365/core/configs/theme/app_text.dart';
+import 'package:vnac365/data/models/service_model.dart';
 import 'package:vnac365/presentation/home/controller/home_controller.dart';
-import 'package:vnac365/presentation/widgets/service_item.dart';
+import 'package:vnac365/presentation/widgets/service_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeController = Get.find<HomeController>();
-
+    final services = Services.services(homeController);
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         //this color must be equal to the WaterDropNavBar backgroundColor
@@ -53,47 +54,11 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         body: Container(
+          color: AppColors.white,
           padding: EdgeInsets.symmetric(
             horizontal: 14.w,
           ),
-          child: GridView.count(
-            padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 10.w),
-            crossAxisCount: 2,
-            mainAxisSpacing: 32.h,
-            crossAxisSpacing: 17.w,
-            children: [
-              ServiceItem(
-                onTap: homeController.gotoActive,
-                label: 'BAY',
-                imagePath: Img.paperplane,
-              ),
-              ServiceItem(
-                onTap: homeController.gotoQuiz,
-                label: 'KIỂM TRA',
-                imagePath: Img.folders,
-              ),
-              ServiceItem(
-                onTap: () {},
-                label: 'THỰC HÀNH',
-                imagePath: Img.sandclock,
-              ),
-              ServiceItem(
-                onTap: homeController.gotoHistory,
-                label: 'BÀI THI ĐÃ LÀM',
-                imagePath: Img.folder,
-              ),
-              ServiceItem(
-                onTap: () {},
-                label: 'ĐANG CHỜ',
-                imagePath: Img.chronometer,
-              ),
-              ServiceItem(
-                onTap: () {},
-                label: 'HỖ TRỢ',
-                imagePath: Img.teamsupport,
-              ),
-            ],
-          ),
+          child: ServiceGrid(services: services),
         ),
       ),
     );
