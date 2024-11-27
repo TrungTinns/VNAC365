@@ -20,7 +20,8 @@ class AuthTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 52.h,
+      // constraints: BoxConstraints(minWidth:327, maxWidth: double.infinity, minHeight: 52, maxHeight: double.infinity),
+      height: 52,
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(16.r), boxShadow: [
         BoxShadow(

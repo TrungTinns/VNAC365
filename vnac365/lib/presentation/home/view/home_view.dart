@@ -9,7 +9,7 @@ import 'package:vnac365/core/configs/theme/app_colors.dart';
 import 'package:vnac365/core/configs/theme/app_text.dart';
 import 'package:vnac365/data/models/service_model.dart';
 import 'package:vnac365/presentation/home/controller/home_controller.dart';
-import 'package:vnac365/presentation/widgets/service_grid.dart';
+import 'package:vnac365/presentation/widgets/common/service_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

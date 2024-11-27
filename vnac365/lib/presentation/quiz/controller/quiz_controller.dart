@@ -28,6 +28,16 @@ class QuizController extends GetxController {
       type: QuestionType.singleChoice,
     ),
     Question(
+      text: 'LCML is the special meal which contains',
+      options: [
+        'A low gluten',
+        'A low fat',
+        'A low calories',
+      ],
+      correctAnswers: [1],
+      type: QuestionType.singleChoice,
+    ),
+    Question(
       text:
           'Which of the following are characteristics of a balanced diet? (Select 2)',
       options: [
@@ -53,6 +63,7 @@ class QuizController extends GetxController {
     super.onClose();
     timer?.cancel();
     resetQuiz();
+    Get.toNamed(AppRoutes.bottomNavBar);
   }
 
   void initializeQuiz() {

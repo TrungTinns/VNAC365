@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import 'package:vnac365/routes/app_routes.dart';
 
 class HomeController extends GetxController {
-  Future<void> gotoActive() async {
-    Get.toNamed(AppRoutes.active);
+  Future<void> gotoQuiz() async {
+    Get.toNamed(AppRoutes.active_code);
   }
 
-  Future<void> gotoQuiz() async {
+  Future<void> gotoPractice() async {
     Get.toNamed(AppRoutes.quiz);
   }
 

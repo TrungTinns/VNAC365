@@ -7,7 +7,8 @@ import 'package:vnac365/presentation/account/controller/account_controller.dart'
 import 'package:vnac365/presentation/account/view/account_view.dart';
 import 'package:vnac365/presentation/home/controller/home_controller.dart';
 import 'package:vnac365/presentation/home/view/home_view.dart';
-import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
+import 'package:vnac365/presentation/widgets/water_nav_bar/bar_item.dart';
+import 'package:vnac365/presentation/widgets/water_nav_bar/build_nav_bar.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});
@@ -55,12 +56,13 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
             selectedIndex: _selectedIndex,
             barItems: <BarItem>[
               BarItem(
-                filledIcon: Icons.home_rounded,
-                outlinedIcon: Icons.home_rounded,
-              ),
+                  filledIcon: Icons.home_rounded,
+                  outlinedIcon: Icons.home_rounded,
+                  label: 'Trang chủ'),
               BarItem(
                 filledIcon: Icons.person_rounded,
                 outlinedIcon: Icons.person_rounded,
+                label: 'Tài khoản',
               ),
             ],
           )),

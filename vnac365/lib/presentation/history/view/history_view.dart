@@ -167,7 +167,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: AppText.service),
+                Text(title, style: AppText.f16w500),
                 const SizedBox(height: 6),
                 Text(dateTime, style: AppText.dateHistory),
               ],

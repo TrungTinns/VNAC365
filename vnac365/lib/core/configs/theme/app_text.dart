@@ -80,7 +80,7 @@ class AppText {
     color: AppColors.welcome,
   );
 
-  static final service = TextStyle(
+  static final f16w500 = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
@@ -100,4 +100,17 @@ class AppText {
     fontWeight: FontWeight.w400,
     color: AppColors.primary,
   );
+
+  static final f16w400 = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.c71727A,
+  );
+
+  static final f16w800 = TextStyle(
+      fontFamily: 'Roboto',
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w800,
+      color: AppColors.c1F2024);
 }

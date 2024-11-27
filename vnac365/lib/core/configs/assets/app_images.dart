@@ -9,4 +9,5 @@ class Img {
   static const String teamsupport = 'assets/images/team-support.png';
   static const String backgroundOverturn =
       'assets/images/background_overturn.png';
+  static const String banner = 'assets/images/banner.png';
 }

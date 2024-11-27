@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:vnac365/core/configs/assets/app_images.dart';
 import 'package:vnac365/core/configs/theme/app_text.dart';
 import 'package:vnac365/presentation/auth/controller/auth_controller.dart';
-import 'package:vnac365/presentation/widgets/confirm_btn.dart';
-import 'package:vnac365/presentation/widgets/iconic.dart';
-import 'package:vnac365/presentation/widgets/textfield.dart';
+import 'package:vnac365/presentation/widgets/common/confirm_btn.dart';
+import 'package:vnac365/presentation/widgets/common/iconic.dart';
+import 'package:vnac365/presentation/widgets/common/textfield.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});

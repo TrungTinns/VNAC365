@@ -11,7 +11,7 @@ class AuthController extends GetxController {
     isSignUp.value = true;
     phoneFocusNode.unfocus();
     if (phoneController.text.isNotEmpty) {
-      Get.toNamed(AppRoutes.active);
+      Get.toNamed(AppRoutes.active_otp);
     }
   }
 

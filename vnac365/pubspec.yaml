@@ -38,7 +38,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   intl: ^0.20.0
   get: ^4.6.6
-  water_drop_nav_bar: ^2.2.2
+  # water_drop_nav_bar: ^2.2.2
   spring_button: ^2.0.0
   animation_list: ^3.1.0
   transformable_list_view: ^0.6.0
